@@ -19,6 +19,9 @@
 		A902B14623DE900300DEE204 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B14523DE900300DEE204 /* Student.swift */; };
 		A902B14823DE929A00DEE204 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B14723DE929A00DEE204 /* TabBarViewController.swift */; };
 		A902B14B23DEE8E000DEE204 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B14A23DEE8E000DEE204 /* MapService.swift */; };
+		E427D2B423DF40DD001B53CA /* SendUserLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427D2B323DF40DD001B53CA /* SendUserLocationRequest.swift */; };
+		E427D2B623DF4501001B53CA /* SendUserLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427D2B523DF4501001B53CA /* SendUserLocationResponse.swift */; };
+		E427D2B823DF46AC001B53CA /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427D2B723DF46AC001B53CA /* LoginService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		A902B14523DE900300DEE204 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		A902B14723DE929A00DEE204 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A902B14A23DEE8E000DEE204 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		E427D2B323DF40DD001B53CA /* SendUserLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUserLocationRequest.swift; sourceTree = "<group>"; };
+		E427D2B523DF4501001B53CA /* SendUserLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUserLocationResponse.swift; sourceTree = "<group>"; };
+		E427D2B723DF46AC001B53CA /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,9 +134,20 @@
 		A902B14923DEE8AD00DEE204 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E427D2B223DF40CC001B53CA /* Model */,
 				A902B14A23DEE8E000DEE204 /* MapService.swift */,
+				E427D2B723DF46AC001B53CA /* LoginService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		E427D2B223DF40CC001B53CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E427D2B323DF40DD001B53CA /* SendUserLocationRequest.swift */,
+				E427D2B523DF4501001B53CA /* SendUserLocationResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,14 +222,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A902B14823DE929A00DEE204 /* TabBarViewController.swift in Sources */,
+				E427D2B623DF4501001B53CA /* SendUserLocationResponse.swift in Sources */,
 				62D6373723DE67C6002989D7 /* LoginViewController.swift in Sources */,
 				A902B14223DE7F5C00DEE204 /* MapViewModel.swift in Sources */,
 				62D6373323DE67C6002989D7 /* AppDelegate.swift in Sources */,
 				A902B14423DE7FF200DEE204 /* ListTableViewController.swift in Sources */,
 				62D6373523DE67C6002989D7 /* SceneDelegate.swift in Sources */,
+				E427D2B823DF46AC001B53CA /* LoginService.swift in Sources */,
 				A902B14623DE900300DEE204 /* Student.swift in Sources */,
 				62D6374B23DE6A61002989D7 /* MapViewController.swift in Sources */,
 				A902B14B23DEE8E000DEE204 /* MapService.swift in Sources */,
+				E427D2B423DF40DD001B53CA /* SendUserLocationRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

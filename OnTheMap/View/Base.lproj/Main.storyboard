@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -120,7 +120,7 @@
                                     <action selector="reload:" destination="I8m-uj-MfD" id="4ek-rr-SPH"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="mappin.circle" catalog="system" id="E8b-k3-TS4">
+                            <barButtonItem systemItem="add" id="E8b-k3-TS4">
                                 <connections>
                                     <action selector="addLocation:" destination="I8m-uj-MfD" id="Utw-FW-wSG"/>
                                 </connections>
@@ -173,7 +173,6 @@
     </scenes>
     <resources>
         <image name="map" catalog="system" width="64" height="56"/>
-        <image name="mappin.circle" catalog="system" width="64" height="60"/>
         <image name="table_30x30" width="30" height="30"/>
     </resources>
 </document>

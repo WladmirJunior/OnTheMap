@@ -32,7 +32,14 @@ class MapViewController: UIViewController, MainScreenTab {
     }
     
     func sendUserLocation() {
-        
+        viewModel.sendUserLocation { error in
+            if let error = error {
+                // TODO: Add alert with this error
+                print(error)
+            } else {
+                self.loadData()
+            }
+        }
     }
     
     private func addLocations() {

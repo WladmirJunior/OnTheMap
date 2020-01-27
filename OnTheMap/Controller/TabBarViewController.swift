@@ -32,7 +32,12 @@ class TabBarViewController: UITabBarController {
     }
     
     @IBAction func addLocation(_ sender: Any) {
-        
+        for viewController in viewControllers! {
+            guard let controller = viewController as? MainScreenTab else {
+                fatalError("\(viewController) need implement MainScreenDelegate")
+            }
+            controller.sendUserLocation()
+        }
     }
 }
 

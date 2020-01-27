@@ -33,6 +33,23 @@ class MapViewModel {
         }
     }
     
+    func sendUserLocation(completion: @escaping(String?) -> ()) {
+        let locationRequest = SendUserLocationRequest(firstName: "Teste 007",
+                                                      lastName: "Last 007",
+                                                      longitude: 0,
+                                                      latitude: 0,
+                                                      mapString: "Tarpon Springs, FL",
+                                                      mediaURL: "www.google.com",
+                                                      uniqueKey: "987236496")
+        service.sendUserLocation(with: locationRequest) { error in
+            if let error = error {
+                completion(error)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
     func hardCodedLocationData() -> [[String : Any]] {
         return  [
             [
