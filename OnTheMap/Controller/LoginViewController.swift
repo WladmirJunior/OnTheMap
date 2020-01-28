@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = LoginViewModel()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
     }
 
     @IBAction func login(_ sender: Any) {
@@ -66,12 +66,6 @@ class LoginViewController: UIViewController {
                 self?.present(navigation, animated: true, completion: nil)
             }
         })
-    }
-    
-    func showAlert(withTitle title: String? = "", AndMessage message: String) {
-        let alertViewController = UIAlertController(title: title, message: message, preferredStyle:.alert)
-        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertViewController, animated: true, completion: nil)
     }
 }
 

@@ -14,7 +14,7 @@ class MapService {
     let userSessionUrl = "https://onthemap-api.udacity.com/v1/session"
     
     func loadData(completion: @escaping(([Student]?, String?) -> ())) {
-        if let url = URL(string: studentLocationUrl) {
+        if let url = URL(string: "\(studentLocationUrl)?limit=100&order=-updatedAt") {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {

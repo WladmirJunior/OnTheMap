@@ -34,12 +34,6 @@ class ListTableViewController: UITableViewController, MainScreenTab {
             }
         }
     }
-    
-    func showAlert(withTitle title: String? = "", AndMessage message: String) {
-        let alertViewController = UIAlertController(title: title, message: message, preferredStyle:.alert)
-        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertViewController, animated: true, completion: nil)
-    }
 
     // MARK: - Table view data source
 

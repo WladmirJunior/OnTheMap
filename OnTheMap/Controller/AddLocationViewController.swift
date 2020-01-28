@@ -31,7 +31,7 @@ class AddLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
         mapView.delegate = self
         
         textFieldMid.attributedPlaceholder = NSAttributedString(string: "Enter Your Location Here",
@@ -112,12 +112,6 @@ class AddLocationViewController: UIViewController {
         self.mapView.addAnnotations(annotations)
         self.mapView.reloadInputViews()
     }
-    
-    func showAlert(withTitle title: String? = "", AndMessage message: String) {
-        let alertViewController = UIAlertController(title: title, message: message, preferredStyle:.alert)
-        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertViewController, animated: true, completion: nil)
-    }
 }
 
 extension AddLocationViewController: MKMapViewDelegate {
@@ -133,5 +127,11 @@ extension UIViewController {
 
     @objc func hideKeyboard() {
         view.endEditing(true)
+    }
+    
+    func showAlert(withTitle title: String? = "", AndMessage message: String) {
+        let alertViewController = UIAlertController(title: title, message: message, preferredStyle:.alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertViewController, animated: true, completion: nil)
     }
 }
