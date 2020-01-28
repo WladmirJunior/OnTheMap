@@ -20,6 +20,10 @@ class MapViewController: UIViewController, MainScreenTab {
         loadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.loadData()
+    }
+    
     func loadData() {
         viewModel.loadData { error in
             if let error = error {
@@ -27,17 +31,6 @@ class MapViewController: UIViewController, MainScreenTab {
                 print(error)
             } else {
                 self.addLocations()
-            }
-        }
-    }
-    
-    func sendUserLocation() {
-        viewModel.sendUserLocation { error in
-            if let error = error {
-                // TODO: Add alert with this error
-                print(error)
-            } else {
-                self.loadData()
             }
         }
     }

@@ -55,4 +55,29 @@ class MapService {
             }.resume()
         }
     }
+    
+    func logout(completion: @escaping((String?) -> ())) {
+        if let url = URL(string: "https://onthemap-api.udacity.com/v1/session") {
+            var request = URLRequest(url: url)
+            request.httpMethod = "DELETE"
+            var xsrfCookie: HTTPCookie? = nil
+            let sharedCookieStorage = HTTPCookieStorage.shared
+            for cookie in sharedCookieStorage.cookies! {
+              if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+            }
+            if let xsrfCookie = xsrfCookie {
+              request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+            }
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let data = data {
+                    let range = 5..<data.count
+                    let newData = data.subdata(in: range)
+                    print(String(data: newData, encoding: .utf8)!)
+                    completion(nil)
+                } else {
+                    completion(error?.localizedDescription)
+                }
+            }.resume()
+        }
+    }
 }

@@ -17,6 +17,10 @@ class ListTableViewController: UITableViewController, MainScreenTab {
         loadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.loadData()
+    }
+    
     func loadData() {
         viewModel.loadData { error in
             if let error = error {
@@ -26,17 +30,6 @@ class ListTableViewController: UITableViewController, MainScreenTab {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-            }
-        }
-    }
-    
-    func sendUserLocation() {
-        viewModel.sendUserLocation { error in
-            if let error = error {
-                // TODO: Add alert with this error
-                print(error)
-            } else {
-                self.loadData()
             }
         }
     }

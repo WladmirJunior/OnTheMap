@@ -19,6 +19,11 @@
 		A902B14623DE900300DEE204 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B14523DE900300DEE204 /* Student.swift */; };
 		A902B14823DE929A00DEE204 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B14723DE929A00DEE204 /* TabBarViewController.swift */; };
 		A902B14B23DEE8E000DEE204 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B14A23DEE8E000DEE204 /* MapService.swift */; };
+		A902B14D23DFAB4000DEE204 /* RequestLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B14C23DFAB4000DEE204 /* RequestLogin.swift */; };
+		A902B14F23DFB32200DEE204 /* RequestLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B14E23DFB32200DEE204 /* RequestLoginResponse.swift */; };
+		A902B15123DFB40E00DEE204 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B15023DFB40E00DEE204 /* LoginViewModel.swift */; };
+		A902B15323DFECBD00DEE204 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B15223DFECBD00DEE204 /* AddLocationViewController.swift */; };
+		A902B15523DFFF3A00DEE204 /* UserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902B15423DFFF3A00DEE204 /* UserDataResponse.swift */; };
 		E427D2B423DF40DD001B53CA /* SendUserLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427D2B323DF40DD001B53CA /* SendUserLocationRequest.swift */; };
 		E427D2B623DF4501001B53CA /* SendUserLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427D2B523DF4501001B53CA /* SendUserLocationResponse.swift */; };
 		E427D2B823DF46AC001B53CA /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427D2B723DF46AC001B53CA /* LoginService.swift */; };
@@ -39,6 +44,11 @@
 		A902B14523DE900300DEE204 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		A902B14723DE929A00DEE204 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A902B14A23DEE8E000DEE204 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		A902B14C23DFAB4000DEE204 /* RequestLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLogin.swift; sourceTree = "<group>"; };
+		A902B14E23DFB32200DEE204 /* RequestLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLoginResponse.swift; sourceTree = "<group>"; };
+		A902B15023DFB40E00DEE204 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A902B15223DFECBD00DEE204 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		A902B15423DFFF3A00DEE204 /* UserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataResponse.swift; sourceTree = "<group>"; };
 		E427D2B323DF40DD001B53CA /* SendUserLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUserLocationRequest.swift; sourceTree = "<group>"; };
 		E427D2B523DF4501001B53CA /* SendUserLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUserLocationResponse.swift; sourceTree = "<group>"; };
 		E427D2B723DF46AC001B53CA /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -102,6 +112,7 @@
 				62D6374A23DE6A61002989D7 /* MapViewController.swift */,
 				A902B14323DE7FF200DEE204 /* ListTableViewController.swift */,
 				A902B14723DE929A00DEE204 /* TabBarViewController.swift */,
+				A902B15223DFECBD00DEE204 /* AddLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -127,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				A902B14123DE7F5C00DEE204 /* MapViewModel.swift */,
+				A902B15023DFB40E00DEE204 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -146,6 +158,9 @@
 			children = (
 				E427D2B323DF40DD001B53CA /* SendUserLocationRequest.swift */,
 				E427D2B523DF4501001B53CA /* SendUserLocationResponse.swift */,
+				A902B14C23DFAB4000DEE204 /* RequestLogin.swift */,
+				A902B14E23DFB32200DEE204 /* RequestLoginResponse.swift */,
+				A902B15423DFFF3A00DEE204 /* UserDataResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,8 +244,13 @@
 				A902B14423DE7FF200DEE204 /* ListTableViewController.swift in Sources */,
 				62D6373523DE67C6002989D7 /* SceneDelegate.swift in Sources */,
 				E427D2B823DF46AC001B53CA /* LoginService.swift in Sources */,
+				A902B15123DFB40E00DEE204 /* LoginViewModel.swift in Sources */,
+				A902B14F23DFB32200DEE204 /* RequestLoginResponse.swift in Sources */,
 				A902B14623DE900300DEE204 /* Student.swift in Sources */,
+				A902B15323DFECBD00DEE204 /* AddLocationViewController.swift in Sources */,
 				62D6374B23DE6A61002989D7 /* MapViewController.swift in Sources */,
+				A902B14D23DFAB4000DEE204 /* RequestLogin.swift in Sources */,
+				A902B15523DFFF3A00DEE204 /* UserDataResponse.swift in Sources */,
 				A902B14B23DEE8E000DEE204 /* MapService.swift in Sources */,
 				E427D2B423DF40DD001B53CA /* SendUserLocationRequest.swift in Sources */,
 			);
