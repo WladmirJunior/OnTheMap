@@ -12,6 +12,9 @@ import MapKit
 class MapViewController: UIViewController, MainScreenTab {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var LoadView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var viewModel: MapViewModel!
     
     override func viewDidLoad() {
@@ -25,12 +28,21 @@ class MapViewController: UIViewController, MainScreenTab {
     }
     
     func loadData() {
-        viewModel.loadData { error in
+        LoadView.isHidden = false
+        activityIndicator.startAnimating()
+        viewModel.loadData { [weak self] error in
             if let error = error {
-                // TODO: Add alert with this error
-                print(error)
+                DispatchQueue.main.async {
+                    self?.showAlert(AndMessage: error)
+                    self?.LoadView.isHidden = true
+                    self?.activityIndicator.stopAnimating()
+                }
             } else {
-                self.addLocations()
+                DispatchQueue.main.async {
+                    self?.LoadView.isHidden = true
+                    self?.activityIndicator.stopAnimating()
+                    self?.addLocations()
+                }
             }
         }
     }
@@ -59,6 +71,12 @@ class MapViewController: UIViewController, MainScreenTab {
         DispatchQueue.main.async {
             self.mapView.addAnnotations(annotations)
         }
+    }
+    
+    func showAlert(withTitle title: String? = "", AndMessage message: String) {
+        let alertViewController = UIAlertController(title: title, message: message, preferredStyle:.alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertViewController, animated: true, completion: nil)
     }
 }
 

@@ -12,12 +12,15 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passField: UITextField!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var viewModel: LoginViewModel?
+    let signUpUdacity = "https://www.udacity.com/account/auth#!/signup"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = LoginViewModel()
+        self.hideKeyboardWhenTappedAround()
     }
 
     @IBAction func login(_ sender: Any) {
@@ -25,7 +28,7 @@ class LoginViewController: UIViewController {
             self.showAlert(AndMessage: "Type your account and password!")
             return
         }
-        
+        activityIndicator.startAnimating()
         viewModel?.login(with: user, andPassword: pass, completion: { [weak self] user, error in
             if let user = user {
                 DispatchQueue.main.async {
@@ -36,22 +39,31 @@ class LoginViewController: UIViewController {
             } else {
                 DispatchQueue.main.async {
                     self?.showAlert(AndMessage: error ?? "Error to enter in application. try again!")
+                    self?.activityIndicator.stopAnimating()
                 }
             }
         })
     }
     
+    @IBAction func signUp(_ sender: Any) {
+        let app = UIApplication.shared
+        if let toOpen = URL(string: signUpUdacity) {
+            app.openURL(toOpen)
+        }
+    }
+    
     private func getUserData(with user: RequestLoginResponse) {
-        viewModel?.getUserData(with: user.session.id, completion: { userData, error in
+        viewModel?.getUserData(with: user.session.id, completion: { [weak self] userData, error in
             DispatchQueue.main.async {
-                let storyboard = self.storyboard
+                self?.activityIndicator.stopAnimating()
+                let storyboard = self?.storyboard
                 let navigation = storyboard?.instantiateViewController(identifier: "navigation") as! UINavigationController
                 navigation.modalPresentationStyle = .fullScreen
                 
                 let tabBar = navigation.viewControllers[0] as! TabBarViewController
                 tabBar.user = user
                 
-                self.present(navigation, animated: true, completion: nil)
+                self?.present(navigation, animated: true, completion: nil)
             }
         })
     }

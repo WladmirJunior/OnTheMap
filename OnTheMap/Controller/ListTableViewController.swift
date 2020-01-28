@@ -22,16 +22,23 @@ class ListTableViewController: UITableViewController, MainScreenTab {
     }
     
     func loadData() {
-        viewModel.loadData { error in
+        viewModel.loadData { [weak self] error in
             if let error = error {
-                // TODO: Add alert with this error
-                print(error)
+                DispatchQueue.main.async {
+                    self?.showAlert(AndMessage: error)
+                }
             } else {
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             }
         }
+    }
+    
+    func showAlert(withTitle title: String? = "", AndMessage message: String) {
+        let alertViewController = UIAlertController(title: title, message: message, preferredStyle:.alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertViewController, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -49,7 +56,7 @@ class ListTableViewController: UITableViewController, MainScreenTab {
         let location = viewModel.students[indexPath.row]
         
         cell.textLabel?.text = location.firstName
-        cell.imageView?.image = UIImage(systemName: "mappin.circle")
+        cell.imageView?.image = UIImage(named: "icon_pin")
         
         return cell
     }

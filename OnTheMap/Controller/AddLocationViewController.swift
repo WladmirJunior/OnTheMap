@@ -81,14 +81,14 @@ class AddLocationViewController: UIViewController {
     
     private func findLocation(address: String) {
         let locationManager = CLGeocoder()
-        locationManager.geocodeAddressString(address) { placemarks, error in
+        locationManager.geocodeAddressString(address) { [weak self] placemarks, error in
             if let placemark = placemarks?[0] {
-                self.latitude = placemark.location!.coordinate.latitude
-                self.longitude = placemark.location!.coordinate.longitude
+                self?.latitude = placemark.location!.coordinate.latitude
+                self?.longitude = placemark.location!.coordinate.longitude
                 
-                self.setLocation()
+                self?.setLocation()
             } else {
-                print("Error on find address")
+                self?.showAlert(AndMessage: "Error on find address")
             }
         }
     }
@@ -112,7 +112,12 @@ class AddLocationViewController: UIViewController {
         self.mapView.addAnnotations(annotations)
         self.mapView.reloadInputViews()
     }
-
+    
+    func showAlert(withTitle title: String? = "", AndMessage message: String) {
+        let alertViewController = UIAlertController(title: title, message: message, preferredStyle:.alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertViewController, animated: true, completion: nil)
+    }
 }
 
 extension AddLocationViewController: MKMapViewDelegate {

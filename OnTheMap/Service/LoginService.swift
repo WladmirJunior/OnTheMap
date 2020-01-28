@@ -10,12 +10,11 @@ import Foundation
 
 class LoginService {
     
-    init() {
-        
-    }
+    let sessionLoginUrl = "https://onthemap-api.udacity.com/v1/session"
+    let userDataUrl = "https://onthemap-api.udacity.com/v1/users/"
     
     func authenticate(with requestLogin: RequestLogin, completion: @escaping((RequestLoginResponse?, String?) -> ())) {
-        if let url = URL(string: "https://onthemap-api.udacity.com/v1/session") {
+        if let url = URL(string: sessionLoginUrl) {
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -41,7 +40,7 @@ class LoginService {
     }
     
     func getUserData(with id: String, completion: @escaping((UserDataResponse?, String?) -> ())) {
-        if let url = URL(string: "https://onthemap-api.udacity.com/v1/users/\(id)") {
+        if let url = URL(string: "\(userDataUrl)\(id)") {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {

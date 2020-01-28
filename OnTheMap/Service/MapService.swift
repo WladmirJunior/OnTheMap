@@ -10,12 +10,11 @@ import Foundation
 
 class MapService {
     
-    init() {
-        
-    }
+    let studentLocationUrl = "https://onthemap-api.udacity.com/v1/StudentLocation"
+    let userSessionUrl = "https://onthemap-api.udacity.com/v1/session"
     
     func loadData(completion: @escaping(([Student]?, String?) -> ())) {
-        if let url = URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation?limit=2") {
+        if let url = URL(string: studentLocationUrl) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {
@@ -34,7 +33,7 @@ class MapService {
     }
     
     func sendUserLocation(with requestLocation: SendUserLocationRequest, completion: @escaping((String?) -> ())) {
-        if let url = URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation") {
+        if let url = URL(string: studentLocationUrl) {
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -57,7 +56,7 @@ class MapService {
     }
     
     func logout(completion: @escaping((String?) -> ())) {
-        if let url = URL(string: "https://onthemap-api.udacity.com/v1/session") {
+        if let url = URL(string: userSessionUrl) {
             var request = URLRequest(url: url)
             request.httpMethod = "DELETE"
             var xsrfCookie: HTTPCookie? = nil
