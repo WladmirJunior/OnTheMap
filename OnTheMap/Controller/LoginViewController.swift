@@ -61,6 +61,7 @@ class LoginViewController: UIViewController {
                 navigation.modalPresentationStyle = .fullScreen
                 
                 let tabBar = navigation.viewControllers[0] as! TabBarViewController
+                tabBar.userData = userData
                 tabBar.user = user
                 
                 self?.present(navigation, animated: true, completion: nil)

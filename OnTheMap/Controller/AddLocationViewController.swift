@@ -21,6 +21,9 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var buttonSubmit: UIButton!
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var LoadView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     var viewModel: MapViewModel?
     var user: RequestLoginResponse?
@@ -43,14 +46,14 @@ class AddLocationViewController: UIViewController {
     
     
     @IBAction func clickFind(_ sender: Any) {
-        buttonFind.isHidden = true
-        buttonSubmit.isHidden = false
-        viewLabelTop.isHidden = true
-        viewFieldMid.isHidden = true
-        viewFieldTop.isHidden = false
-        mapView.isHidden = false
-        
-        findLocation(address: textFieldMid.text!)
+        findLocation(address: textFieldMid.text!) { [weak self] result in
+            self?.buttonFind.isHidden = true
+            self?.buttonSubmit.isHidden = false
+            self?.viewLabelTop.isHidden = true
+            self?.viewFieldMid.isHidden = true
+            self?.viewFieldTop.isHidden = false
+            self?.mapView.isHidden = false
+        }
     }
     
     @IBAction func submit(_ sender: Any) {
@@ -79,16 +82,21 @@ class AddLocationViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    private func findLocation(address: String) {
+    private func findLocation(address: String, completion: @escaping(Bool) -> ()) {
+        LoadView.isHidden = false
+        activityIndicator.startAnimating()
         let locationManager = CLGeocoder()
         locationManager.geocodeAddressString(address) { [weak self] placemarks, error in
+            self?.LoadView.isHidden = true
+            self?.activityIndicator.stopAnimating()
             if let placemark = placemarks?[0] {
                 self?.latitude = placemark.location!.coordinate.latitude
                 self?.longitude = placemark.location!.coordinate.longitude
-                
+                completion(true)
                 self?.setLocation()
             } else {
                 self?.showAlert(AndMessage: "Error on find address")
+                completion(false)
             }
         }
     }
